@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Apotek lokal terpercaya menyediakan obat lengkap, asli, dan aman dengan layanan antar dan konsultasi apoteker gratis.">
+    <meta name="keywords"
+        content="apotek, beli obat online, obat flu, vitamin, alat kesehatan, apotek terdekat, konsultasi apoteker">
+    <title>Apotek Kosambi - Sehat Milik Kita Semua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-notes-medical" style="color: var(--mint-green); margin-right: 8px;"></i>
+                <span style="font-weight: 700; color: var(--primary-blue);">Apotek Kosambi</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#katalog">Katalog Obat</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#artikel">Artikel</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://wa.me/6289629857172" class="btn-cta-nav" target="_blank">Chat Farmasis</a>
+                <div class="cart-icon-container" id="cartBtn" onclick="checkoutWhatsApp()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count" class="cart-badge">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" class="hero-section">
+            <div class="container hero-content">
+                <h1>Kesehatan Anda Adalah Prioritas Utama Kami</h1>
+                <p>Kami menjamin 100% keaslian dan keamanan setiap produk kesehatan yang Anda butuhkan, langsung dari
+                    distributor resmi.</p>
+                <a href="#katalog" class="btn-primary">Lihat Katalog Obat</a>
+            </div>
+        </section>
+
+        <section id="mitra" class="mitra-section">
+            <div class="container">
+                <div class="mitra-logo-grid">
+                    <div class="mitra-item"><i class="fa-solid fa-flask"></i> PharmaA</div>
+                    <div class="mitra-item"><i class="fa-solid fa-capsules"></i> BioMed</div>
+                    <div class="mitra-item"><i class="fa-solid fa-prescription-bottle-medical"></i> HealthC</div>
+                    <div class="mitra-item"><i class="fa-solid fa-heart-pulse"></i> Vitalix</div>
+                    <div class="mitra-item"><i class="fa-solid fa-staff-snake"></i> CurePharma</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="layanan" class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Kenapa Memilih Kami?</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-pills feature-icon"></i>
+                        <h3>Obat Lengkap</h3>
+                        <p>Tersedia berbagai macam obat resep, bebas, hingga suplemen.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-tags feature-icon"></i>
+                        <h3>Harga Terjangkau</h3>
+                        <p>Dapatkan harga terbaik untuk setiap produk kesehatan Anda.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-motorcycle feature-icon"></i>
+                        <h3>Bisa Delivery</h3>
+                        <p>Layanan pesan antar cepat langsung ke depan pintu rumah Anda.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-user-nurse feature-icon"></i>
+                        <h3>Konsultasi Gratis</h3>
+                        <p>Tanya apoteker kami secara langsung tanpa biaya tambahan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="katalog" class="katalog-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Katalog Produk</h2>
+                </div>
+
+                <div class="katalog-filter">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="vitamin">Vitamin</button>
+                    <button class="filter-btn" data-filter="flu">Obat Flu</button>
+                    <button class="filter-btn" data-filter="anak">Obat Anak</button>
+                    <button class="filter-btn" data-filter="alkes">Alat Kesehatan</button>
+                </div>
+
+                <div class="katalog-grid">
+                    <div class="product-card" data-category="alkes">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8226b-mhq28wm6xwckf9_tn.webp"
+                            alt="Fungares Cream Isi 10 Gram Tube" class="product-img">
+                        <div class="product-info">
+                            <h4>Fungares Cream Isi 10 Gram Tube</h4>
+                            <p class="price">Rp 37.124</p>
+                            <button class="btn-buy"
+                                onclick="addToCart(this.parentElement.querySelector('h4').innerText, parseInt(this.parentElement.querySelector('.price').innerText.replace(/[^0-9]/g, '')))">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="flu">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8227q-mhk8pop38wzo2c_tn.webp"
+                            alt="Freshcare Smash Aromatherapy 8 Ml Botol" class="product-img">
+                        <div class="product-info">
+                            <h4>Freshcare Smash Aromatherapy 8 Ml Botol</h4>
+                            <p class="price">Rp 16.433</p>
+                            <button class="btn-buy"
+                                onclick="addToCart(this.parentElement.querySelector('h4').innerText, parseInt(this.parentElement.querySelector('.price').innerText.replace(/[^0-9]/g, '')))">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="flu">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8226m-mhq241yqxhc463_tn.webp"
+                            alt="Panadol Strip Isi 10 Kaplet" class="product-img">
+                        <div class="product-info">
+                            <h4>Panadol Strip Isi 10 Kaplet</h4>
+                            <p class="price">Rp 15.824</p>
+                            <button class="btn-buy"
+                                onclick="addToCart(this.parentElement.querySelector('h4').innerText, parseInt(this.parentElement.querySelector('.price').innerText.replace(/[^0-9]/g, '')))">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="alkes">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8226q-mhq2300dweth3a_tn.webp"
+                            alt="Cap Lang Minyak Kayu Putih 15 Ml" class="product-img">
+                        <div class="product-info">
+                            <h4>Cap Lang Minyak Kayu Putih 15 Ml</h4>
+                            <p class="price">Rp 7.914</p>
+                            <button class="btn-buy"
+                                onclick="addToCart(this.parentElement.querySelector('h4').innerText, parseInt(this.parentElement.querySelector('.price').innerText.replace(/[^0-9]/g, '')))">Beli
+                                Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="alkes">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8226f-mhk8gm3f38cj06_tn.webp"
+                            alt="Cap Lang Minyak Kayu Putih 60 Ml" class="product-img">
+                        <div class="product-info">
+                            <h4>Cap Lang Minyak Kayu Putih 60 Ml</h4>
+                            <p class="price">Rp 27.387</p>
+                            <button class="btn-buy">Beli Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="vitamin">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8224t-mhq2388e5ero68_tn.webp"
+                            alt="Sangobion Strip 10 Kapsul" class="product-img">
+                        <div class="product-info">
+                            <h4>Sangobion Strip 10 Kapsul</h4>
+                            <p class="price">Rp 29.016</p>
+                            <button class="btn-buy">Beli Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="anak">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-8224p-mhq23vi95tz855_tn.webp"
+                            alt="Feminax Strip Isi 4 Tablet" class="product-img">
+                        <div class="product-info">
+                            <h4>Feminax Strip Isi 4 Tablet</h4>
+                            <p class="price">Rp 4.261</p>
+                            <button class="btn-buy">Beli Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="alkes">
+                        <img src="https://down-id.img.susercontent.com/file/sg-11134201-824hz-mfc6wzinxgcs35_tn.webp"
+                            alt="Hansaplast Koyo Hangat Isi 10" class="product-img">
+                        <div class="product-info">
+                            <h4>Hansaplast Koyo Hangat Isi 10</h4>
+                            <p class="price">Rp 13.389</p>
+                            <button class="btn-buy">Beli Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimoni" class="testimoni-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Apa Kata Pelanggan Kami?</h2>
+                </div>
+                <div class="testimoni-grid">
+                    <div class="testimoni-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Pelayanan sangat cepat dan apotekernya ramah. Saya mendapat penjelasan
+                            lengkap mengenai dosis obat yang saya beli."</p>
+                        <div class="customer-info">
+                            <i class="fa-solid fa-circle-user customer-icon"></i>
+                            <div>
+                                <h4>Budi Santoso</h4>
+                                <p>Warga Duri Kosambi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimoni-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Obat yang saya cari selalu ada di sini, harganya juga terjangkau
+                            dibanding apotek lain. Layanan delivery sangat membantu!"</p>
+                        <div class="customer-info">
+                            <i class="fa-solid fa-circle-user customer-icon"></i>
+                            <div>
+                                <h4>Siti Aminah</h4>
+                                <p>Ibu Rumah Tangga</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimoni-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Sangat puas dengan fasilitas chat dengan farmasis. Saya bisa konsultasi
+                            dulu sebelum beli obat. Terima kasih Apotek Kosambi!"</p>
+                        <div class="customer-info">
+                            <i class="fa-solid fa-circle-user customer-icon"></i>
+                            <div>
+                                <h4>Andi Pratama</h4>
+                                <p>Karyawan Swasta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <h3>Apakah Apotek Kosambi melayani resep dokter?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-body">
+                            <p>Ya, kami melayani penebusan resep dokter. Anda dapat membawa resep fisik ke apotek kami
+                                atau mengirimkan fotonya melalui WhatsApp untuk kami siapkan terlebih dahulu.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <h3>Bagaimana cara menggunakan layanan delivery?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-body">
+                            <p>Anda bisa memesan obat melalui nomor WhatsApp kami. Sampaikan pesanan Anda beserta alamat
+                                lengkap. Tim kami akan mengantarkan pesanan Anda di area seputar Duri Kosambi dengan
+                                biaya kirim yang terjangkau.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <h3>Apakah tersedia layanan konsultasi obat secara online?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-body">
+                            <p>Tentu saja. Anda dapat berkonsultasi secara gratis dengan apoteker kami melalui layanan
+                                chat WhatsApp selama jam operasional apotek.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-header">
+                            <h3>Metode pembayaran apa saja yang diterima?</h3>
+                            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-body">
+                            <p>Kami menerima pembayaran tunai, kartu debit/kredit, transfer bank, dan e-wallet seperti
+                                GoPay, OVO, Dana, serta QRIS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artikel" class="artikel-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Artikel & Edukasi Kesehatan</h2>
+                </div>
+                <div class="artikel-grid">
+                    <article class="artikel-card">
+                        <img src="https://via.placeholder.com/400x250?text=Edukasi+1" alt="Artikel 1">
+                        <div class="artikel-content">
+                            <span class="artikel-tag">Gaya Hidup</span>
+                            <h3>Cara Menjaga Imunitas di Musim Pancaroba</h3>
+                            <p>Perubahan cuaca seringkali membuat daya tahan tubuh menurun. Simak panduan asupan gizi
+                                yang tepat.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="artikel-card">
+                        <img src="https://via.placeholder.com/400x250?text=Edukasi+2" alt="Artikel 2">
+                        <div class="artikel-content">
+                            <span class="artikel-tag">Kesehatan</span>
+                            <h3>Mengenal Perbedaan Influenza dan Batuk Biasa</h3>
+                            <p>Gejala flu dan batuk sering disalahartikan. Ketahui perbedaannya agar mendapat penanganan
+                                obat yang benar.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="artikel-card">
+                        <img src="https://via.placeholder.com/400x250?text=Edukasi+3" alt="Artikel 3">
+                        <div class="artikel-content">
+                            <span class="artikel-tag">Tips Medis</span>
+                            <h3>Pentingnya Mengecek Kadaluarsa Obat</h3>
+                            <p>Menyimpan obat dalam waktu lama perlu kehati-hatian. Ini alasan mengapa mengecek tanggal
+                                kedaluwarsa itu penting.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="kontak-section">
+            <div class="container kontak-wrapper">
+                <div class="kontak-info-box">
+                    <h2>Kunjungi Apotek Kami</h2>
+                    <ul class="kontak-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Alamat:</strong>
+                                <span>Jl. Raya Kresek No.29D, RT.1/RW.3, Duri Kosambi, Kec. Cengkareng, Kota Jakarta
+                                    Barat, 11750</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-clock"></i>
+                            <div>
+                                <strong>Jam Operasional:</strong>
+                                <span>Senin - Sabtu: 07.00 - 22.00 WIB<br>Minggu: 08.00 - 20.00 WIB</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong>Telepon / WA:</strong>
+                                <span>0812-3456-7890</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="map" class="map-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fa-solid fa-xmark"></i></span>
+            <div class="modal-body">
+                <img src="" alt="" id="modalImg">
+                <div class="modal-details">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalPrice" class="price"></p>
+                    <p>Deskripsi produk berkualitas asli dari distributor resmi. Tersedia untuk dikirim langsung ke
+                        rumah Anda atau diambil di apotek.</p>
+                    <a href="https://wa.me/6289629857172" class="btn-primary" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <a href="#" class="logo-footer">
+                        <i class="fa-solid fa-notes-medical"></i>
+                        <span>Apotek Kosambi</span>
+                    </a>
+                </div>
+                <p class="footer-desc">Apotek Kosambi berkomitmen menyediakan pelayanan kefarmasian terbaik dengan
+                    produk original dan terjamin mutunya.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#katalog">Katalog Produk</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#artikel">Artikel Kesehatan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Layanan Kami</h3>
+                <ul>
+                    <li><a href="#">Konsultasi Apoteker</a></li>
+                    <li><a href="#">Tebus Resep Dokter</a></li>
+                    <li><a href="#">Pesan Antar Obat</a></li>
+                    <li><a href="#">Cek Tensi & Gula Darah</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Jam Operasional</h3>
+                <ul class="operating-hours">
+                    <li><span>Senin - Jumat</span> <span>07.00 - 22.00</span></li>
+                    <li><span>Sabtu</span> <span>07.00 - 22.00</span></li>
+                    <li><span>Minggu / Libur</span> <span>08.00 - 20.00</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Apotek Kosambi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="custom-alert" class="custom-alert">
+        <div class="custom-alert-content">
+            <div class="custom-alert-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <p id="custom-alert-message"></p>
+            <button onclick="closeCustomAlert()" class="btn-primary"
+                style="margin-top: 15px; width: 100%; border-radius: 5px;">Tutup</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>
