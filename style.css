@@ -74,9 +74,11 @@ header.scrolled {
     gap: 10px;
 }
 
-.logo i {
-    color: var(--mint-green);
-    font-size: 2rem;
+.logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 8px;
 }
 
 .logo span {
@@ -703,11 +705,6 @@ footer {
     align-items: center;
     gap: 10px;
     margin-bottom: 15px;
-}
-
-.logo-footer i {
-    color: var(--mint-green);
-    font-size: 2rem;
 }
 
 .logo-footer span {
